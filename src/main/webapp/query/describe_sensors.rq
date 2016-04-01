@@ -1,0 +1,6 @@
+PREFIX iot-lite: <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#>
+PREFIX ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>
+
+#DESCRIBE <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Desk9SensingDevice5>
+#DESCRIBE <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#
+DESCRIBE <

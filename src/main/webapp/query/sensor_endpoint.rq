@@ -1,0 +1,23 @@
+PREFIX geo:  <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX iot-lite: <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#>
+PREFIX ssn: <http://purl.oclc.org/NET/ssnx/ssn#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?dev ?resource ?lat ?long ?endp
+WHERE { 
+    ?dev a ssn:Device .
+    ?dev ssn:hasSubSystem ?resource.
+    ?resource a ssn:SensingDevice.
+    ?resource iot-lite:isExposedBy ?serv.
+    ?serv iot-lite:endpoint ?endp.
+    ?dev ssn:onPlatform ?platform .
+    ?platform geo:location ?point .
+    ?point geo:lat ?lat .
+    ?point geo:long ?long .
+    FILTER ( 
+       (xsd:double(?lat) >= "0"^^xsd:double) 
+    && (xsd:double(?lat) <= "60"^^xsd:double) 
+    && ( xsd:double(?long) < "100"^^xsd:double)  
+    && ( xsd:double(?long) > "-0.60"^^xsd:double)
+    )     
+}

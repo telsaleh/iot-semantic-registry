@@ -1,0 +1,6 @@
+PREFIX iot-lite: <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#>
+PREFIX ssn: <http://www.w3.org/2005/Incubator/ssn/ssnx/ssn#>
+SELECT *
+WHERE {
+  ?s a ssn:SensingDevice.
+}order by asc(UCASE(str(?s)))
